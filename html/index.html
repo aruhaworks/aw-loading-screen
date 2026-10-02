@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AW Loading Screen</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <video id="bg-video" playsinline loop></video>
+  <div class="fallback-bg"></div>
+  <div class="dim"></div>
+
+  <section class="stages">
+    <h2 id="loading-title"></h2>
+    <ul id="stage-list"></ul>
+  </section>
+
+  <div class="weather" id="weather-box">
+    <span id="weather-icon"></span><b id="weather-temp"></b><small id="weather-cond"></small>
+  </div>
+
+  <footer class="bottom">
+    <h1 id="welcome" class="welcome"></h1>
+
+    <div class="row">
+      <div class="id">
+        <div class="logo">
+          <svg viewBox="0 0 64 64" class="mark" aria-hidden="true">
+            <circle class="ring" cx="32" cy="32" r="29"/>
+            <text x="32" y="40" text-anchor="middle" id="mark-text">AW</text>
+          </svg>
+          <img id="logo-img" alt="" hidden>
+        </div>
+        <div class="who">
+          <b id="clock">--:--</b>
+          <small id="city"></small>
+        </div>
+      </div>
+
+      <div class="ticker">
+        <div class="ticker-label" id="ticker-label"></div>
+        <div class="ticker-window"><div class="ticker-track" id="ticker-track"></div></div>
+      </div>
+
+      <div class="status">
+        <div class="music" id="music-box">
+          <button id="mute-btn" aria-label="Toggle music">♪</button>
+          <input id="volume" type="range" min="0" max="100" aria-label="Volume">
+        </div>
+        <span id="status-text"></span>
+      </div>
+    </div>
+  </footer>
+
+  <audio id="audio"></audio>
+  <script src="config.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

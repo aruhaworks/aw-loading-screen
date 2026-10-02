@@ -1,0 +1,67 @@
+:root{--g:rgba(255,255,255,.6);--line:rgba(255,255,255,.2)}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;overflow:hidden;background:#000;color:#fff;
+  font-family:"Inter","Segoe UI",Arial,sans-serif;font-size:15px}
+
+/* background */
+#bg-video{position:fixed;inset:0;width:100%;height:100%;object-fit:cover}
+body.bw #bg-video{filter:grayscale(1)}
+.fallback-bg{position:fixed;inset:0;z-index:-1;background:radial-gradient(60% 60% at 30% 30%,#2e2e2e,#050505);
+  background-size:140% 140%;animation:bgmove 16s ease-in-out infinite alternate}
+@keyframes bgmove{to{background-position:100% 100%}}
+.dim{position:fixed;inset:0;background:linear-gradient(rgba(0,0,0,.35),rgba(0,0,0,.1) 40%,rgba(0,0,0,.8))}
+
+/* stages */
+.stages{position:fixed;top:5vh;left:3vw;width:min(260px,40vw);animation:fade 1s .1s both}
+.stages h2{font-size:.8rem;font-weight:600;letter-spacing:.3em;margin-bottom:1.1rem}
+.stages ul{list-style:none;display:grid;gap:.9rem}
+.stage{opacity:.5;transition:opacity .4s}
+.stage.active,.stage.done{opacity:1}
+.stage span{display:flex;justify-content:space-between;font-size:.7rem;letter-spacing:.15em;margin-bottom:.35rem;color:var(--g)}
+.stage .bar{height:2px;background:rgba(255,255,255,.2)}
+.stage .bar i{display:block;height:100%;width:0;background:#fff;transition:width .35s linear}
+.stage.done span::after{content:"✓"}
+
+.weather{position:fixed;top:5vh;right:3vw;display:flex;align-items:baseline;gap:.5rem;animation:fade 1s .2s both}
+.weather b{font-size:1.4rem;font-weight:500}
+.weather small{color:var(--g)}
+
+/* bottom */
+.bottom{position:fixed;left:0;right:0;bottom:0;padding:0 3vw 3.5vh;animation:rise 1s .3s both cubic-bezier(.2,.8,.2,1)}
+.welcome{font-size:2rem;font-weight:600;letter-spacing:.04em;margin-bottom:1.4rem;min-height:1.3em}
+.welcome .ch{display:inline-block;opacity:0;transform:translateY(.4em);animation:ch .5s forwards cubic-bezier(.2,.8,.2,1)}
+.welcome .sp{display:inline-block;width:.3em}
+@keyframes ch{to{opacity:1;transform:none}}
+
+.row{display:flex;align-items:center;gap:1.6rem;padding-top:1rem;border-top:1px solid var(--line)}
+.id{display:flex;align-items:center;gap:.8rem;flex:none}
+.logo{width:48px;height:48px;position:relative}
+.mark{width:100%;height:100%}
+.mark circle{fill:none;stroke:#fff;stroke-width:2;stroke-dasharray:30 12;transform-origin:center;animation:spin 10s linear infinite;vector-effect:non-scaling-stroke}
+.mark text{fill:#fff;font:700 19px "Inter","Segoe UI",sans-serif}
+.logo img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
+@keyframes spin{to{transform:rotate(360deg)}}
+.who{display:flex;flex-direction:column;line-height:1.2}
+#clock{font-size:1.1rem;font-weight:600;font-variant-numeric:tabular-nums}
+.who small{font-size:.7rem;color:var(--g);letter-spacing:.1em}
+
+.ticker{flex:1;min-width:0;display:flex;align-items:center;gap:1rem}
+.ticker-label{flex:none;font-size:.7rem;font-weight:700;letter-spacing:.18em;padding:.3rem .7rem;background:#fff;color:#000}
+.ticker-window{flex:1;overflow:hidden;
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+.ticker-track{display:flex;white-space:nowrap;animation:scroll linear infinite;font-size:.85rem;color:rgba(255,255,255,.85)}
+.ticker-track span{padding:0 1.4rem}
+.ticker-track span::after{content:"/";margin-left:1.4rem;color:var(--g)}
+@keyframes scroll{to{transform:translateX(-50%)}}
+
+.status{flex:none;display:flex;align-items:center;gap:1rem;font-size:.8rem;color:var(--g);font-variant-numeric:tabular-nums}
+.music{display:flex;align-items:center;gap:.3rem}
+.music button{background:none;border:0;color:#fff;font-size:1rem;cursor:pointer}
+.music button.off{opacity:.35}
+.music input{width:64px;accent-color:#fff;cursor:pointer}
+button:focus-visible,input:focus-visible{outline:2px solid #fff;outline-offset:2px}
+
+@keyframes fade{from{opacity:0}}
+@keyframes rise{from{opacity:0;transform:translateY(30px)}}
+@media (max-width:900px){.welcome{font-size:1.3rem}.row{flex-wrap:wrap}.ticker{order:3;flex-basis:100%}}
+@media (prefers-reduced-motion:reduce){.stages,.weather,.bottom,.fallback-bg,.mark circle{animation:none}}

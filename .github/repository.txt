@@ -1,0 +1,8 @@
+Repository name:
+aw-loading-screen
+
+Description:
+A clean, configurable and performance-focused FiveM loading screen by ARUHAWORKS.
+
+Topics:
+fivem, fivem-script, fivem-resource, loading-screen, lua, javascript, html, css, nui, ui, aruhaworks
