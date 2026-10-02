@@ -190,14 +190,3 @@ MIT
 
 Copyright (c) 2026 ARUHAWORKS
 
-### Asset notice
-
-Before publishing the repository publicly, make sure you have redistribution rights for every bundled media asset, especially:
-
-```text
-html/audio/music.mp3
-html/video/bg.mp4
-docs/showcase.gif
-```
-
-The code license does not automatically grant rights to third-party music, footage, logos or other media.
